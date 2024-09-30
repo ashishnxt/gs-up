@@ -20,6 +20,12 @@
 
     <link rel="icon" href="image/amaasicon.png" sizes="32x32">
 
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+       
+
     <title>News</title>
 
     <style>
@@ -71,7 +77,7 @@
 
 .content {
     flex-grow: 1;
-    padding: 20px;
+ 
     background-color: #ffffff;
 }
 
@@ -121,9 +127,9 @@
     }
 
     .sidebary {
-        width: 30%;
+        width: 60%;
         max-width: 300px;
-        height: 70vh;
+        height: 20vh;
     }
 
     .content-wrappery {
@@ -134,7 +140,7 @@
 
     .content {
         flex: 1 1 60%;
-        max-width: 60%;
+        max-width: 100%;
     }
 
     .image-containery {
@@ -184,30 +190,139 @@
 
 
 
-.content {
-    flex-grow: 1;
-    padding: 20px;
-    background-color: #ffffff;
-    font-size: 18px; /* Add this line to increase the font size */
+
+
+
+section{
+  position: relative;  
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20px;
 }
 
-.content h1 {
-    color: #003366;
-    margin-top: 0;
+.swiper{
+  width: 90%;
+  max-width: 1200px;
 }
 
-/* You may want to adjust the line height for better readability with the larger font size */
-.content p {
-    line-height: 1.6; /* Add this line for better line spacing */
-    font-size: 18px;
+.card{
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  height: 100%;
+  min-height: 250px;
+  margin: 20px 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.content li {
-    line-height: 1.6; /* Add this line for better line spacing */
-    font-size: 15px;
-    color: #003366;
-    font-weight: 600;
+.card::before{
+  content: "";
+  position: absolute;
+  height: 40%;
+  width: 100%;
+  background: white;
+  border-radius: 20px 20px 0 0;
 }
+
+.card .card-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  position: relative;
+  z-index: 100;
+}
+
+section .card .video{
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+ 
+
+}
+
+section .card .video video{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+
+}
+
+/* Pagination and navigation buttons */
+.swiper-pagination{
+  position: absolute;
+  top: 100%;
+  text-align: center;
+}
+
+.swiper-pagination-bullet{
+  height: 7px;
+  width: 26px;
+  border-radius: 25px;
+  background: white;
+}
+
+.swiper-button-next, .swiper-button-prev{
+  opacity: 0.7;
+  color: white;
+  transition: all 0.3s ease;
+}
+.swiper-button-next:hover, .swiper-button-prev:hover{
+  opacity: 1;
+  color: white;
+}
+
+/* === Media Queries for Responsiveness === */
+
+/* For laptops and desktops */
+@media screen and (min-width: 768px) {
+  .card .card-content {
+    padding: 0px;
+  }
+
+  section .card .video {
+    height: 100%;
+  }
+
+  .swiper {
+    width: 100%;
+  }
+}
+
+/* For mobile devices */
+@media screen and (max-width: 767px) {
+ 
+  section {
+    padding: 10px;
+  }
+
+  .swiper {
+    width: 100%;
+  }
+
+  section .card .video {
+    height: 100%;
+  }
+
+  /* Adjust for single card view */
+  .swiper-slide {
+    width: 100% !important;
+  }
+
+  .swiper-button-next, .swiper-button-prev {
+    display: none; /* Hide navigation buttons for mobile */
+  }
+
+  .swiper-pagination {
+    bottom: 0;
+    top: auto; /* Move pagination to the bottom on mobile */
+  }
+}
+
 
     </style>
 </head>
@@ -233,10 +348,10 @@
                             <a class="nav-link nav-link-Header" href="about.html">About us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-link-Header link-header-active" href="news.html">Business Area</a>
+                            <a class="nav-link nav-link-Header" href="news.html">Business Area</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-link-Header" href="projects.html">Product</a>
+                            <a class="nav-link nav-link-Header  link-header-active" href="projects.html">Product</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link nav-link-Header" href="order.html">Our facalties</a>
@@ -268,40 +383,117 @@
 
 
 
-    <div class="bg-light-30">
-        <div class="container-lg p-2 px-lg-3 div-white">
+   
 
 
 
-            <div class="containery">
-                <div class="sidebary">
-                    <button class="sidebary-option active" data-option="construction">PRECISION MACHINING PARTS </button>
-                    <button class="sidebary-option " data-option="agriculture">HYDRAULIC DAMPER PARTS</button>
-                  
-                    <button class="sidebary-option" data-option="aftermarket">POINT LINKAGE PARTS</button>
-                    
-                </div>
-                <div class="content-wrappery">
-                    <div class="content" id="content">
-                        <!-- Content will be dynamically inserted here -->
+            <div class="bg-light-30">
+                <div class="container-lg p-2 px-lg-3 div-white">
+                    <div class="containery">
+                        <div class="sidebary">
+                            <button class="sidebary-option active" data-option="construction">PRECISION MACHINING PARTS</button>
+                            <button class="sidebary-option" data-option="agriculture">HYDRAULIC DAMPER PARTS</button>
+                            <button class="sidebary-option" data-option="aftermarket">POINT LINKAGE PARTS</button>
+                        </div>
+
+
+
+                        <div class="content-wrappery">
+                            <div class="content" id="content" style="padding: 20px;">
+                                <!-- Content will be dynamically inserted here -->
+                            </div>
+                        </div>
+
+                        
                     </div>
-                    <div class="image-containery">
-                        <img id="sector-image" src="./image2/ari.jpg" alt="Sector Image" />
-                    </div>
-                    
-            
-                </div>
-              
 
+                    <section class="with">
+    
+                        <div class="swiper mySwiper containerapy">
+                          <div class="swiper-wrapper content">
+                    
+                            <div class="swiper-slide card">
+                              <div class="card-content">
+                                <div class="video">
+                                  <video src="./WhatsApp Video 2024-09-29 at 21.46.38_05b440e6.mp4" autoplay muted loop></video>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="swiper-slide card">
+                              <div class="card-content">
+                                <div class="video">
+                                  <video src="./WhatsApp Video 2024-09-29 at 21.46.38_05b440e6.mp4" autoplay muted loop></video>
+                                </div>
+                              </div>
+                            </div>
+                    
+                    
+                            <div class="swiper-slide card">
+                              <div class="card-content">
+                                <div class="video">
+                                  <video src="./WhatsApp Video 2024-09-29 at 21.46.38_05b440e6.mp4" autoplay muted loop></video>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="swiper-slide card">
+                              <div class="card-content">
+                                <div class="video">
+                                  <video src="./WhatsApp Video 2024-09-29 at 21.46.38_05b440e6.mp4" autoplay muted loop></video>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="swiper-slide card">
+                              <div class="card-content">
+                                <div class="video">
+                                  <video src="./WhatsApp Video 2024-09-29 at 21.46.38_05b440e6.mp4" autoplay muted loop></video>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="swiper-slide card">
+                                <div class="card-content">
+                                  <div class="video">
+                                    <video src="./WhatsApp Video 2024-09-29 at 21.46.38_05b440e6.mp4" autoplay muted loop></video>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="swiper-slide card">
+                                <div class="card-content">
+                                  <div class="video">
+                                    <video src="./WhatsApp Video 2024-09-29 at 21.46.38_05b440e6.mp4" autoplay muted loop></video>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="swiper-slide card">
+                                <div class="card-content">
+                                  <div class="video">
+                                    <video src="./WhatsApp Video 2024-09-29 at 21.46.38_05b440e6.mp4" autoplay muted loop></video>
+                                  </div>
+                                </div>
+                              </div>
+                    
+                            
+                            <!-- Additional video cards -->
+                    
+                          </div>
+                        </div>
+                    
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                      </section>
+                   
+                    
+                    <div id="extra-images" class="extra-images-container" style="padding: 20px;">
+                        <!-- Extra images will be inserted here dynamically -->
+                    </div>  
+
+                   
+                </div>
+                
             </div>
             
-            <div id="extra-images" class="extra-images-container">
-                <!-- Extra images will be inserted here dynamically -->
-            </div>  
 
-            
-        </div>
-    </div>
+      
 
     <div class="container-fluid bg-footer pt-5">
         <div class="container-lg mt-0 mt-lg-0 pt-0 pt-lg-0">
@@ -366,14 +558,7 @@
                 <div class="col-lg-4 mt-5">
                     <h5 class="link-footer-parent"><span class="">Newsletter Subscribe</span> </h5>
 
-                            <form id="footerform" class="">
-                                <div class="">
-                                    <label for="emailtxt" class="form-label"></label>
-                                    <input type="text" class="form-control bg-transparent text-white py-2 px-2" placeholder="Enter Your E-mail" id="emailtxt" >
-                                    <div class="invalid-email"></div>
-                                </div>
-                                <button class="btn w-100 mt-3 btn-yellow text-white" type="submit">Subscription</button>
-                            </form>
+                            
                     <div class="mt-4">
                       <!-- text -->
                         <div class="d-inline-block   me-3">
@@ -431,103 +616,128 @@
         }
     </script>
 
-
 <script>
-  const contentData = {
-    construction: {
-        title: "AGRI MACHINARY",
-        content: `
-            <p>GSE is a manufacturer of 3-Point Linkage Parts for agricultural machinery. </br>  Product Portfolio offered to the agriculture segment includes 3-Point Linkage parts, Precision Machined Parts (PMP), Power take-off (PTO) components and Forgings.</p>
-            <p>The three-point hitch (British English: three-point linkage) is a widely used various type of hitch for attaching ploughs and other implements to an agricultural or industrial Tractor.</P>
-                <p>A three-point hitch attaches the implement to the tractor so that the orientation of the implement is fixed with respect to the tractor and the arm position of the hitch. The primary benefit of the three-point hitch system is to transfer the weight and resistance of an implement to the drive wheels of the Tractor.</P>
-            <p>The group currently services its Agriculture clients with manufacturing bases in India which are seamlessly complemented by its well-established Business model.</p> 
-        `,
-        image: "./image2/BUS-ARI.jpg",
-        extraImages: [
-            "./mech/a (1).jpg",
-            "./mech/a (1).png",
-            "./mech/a (2).jpg",
-            "./mech/a (2).png",
-            "./mech/a (3).png",
-            "./mech/a (4).png",
-            "./mech/a (5).png",
-        ],
-        backgroundImage: "./image2/bus-back5.jpg" // Add this line
-    },
-    agriculture: {
-        title: "CONSTRUCTION AND FORESTRY",
-        content: `
-            <p>GSE is a supplier for precision machined parts (PMP) and Hydraulic Cylinder Parts to the mobile equipment market and in particular to the construction market. </p>
-            <p>GSE combines application expertise and advanced technologies to serve precision-driven industrial markets. We provide optimized manufacturing operations to deliver tight-tolerance complex parts. We focus on customer service to increase supply chain value. As a reliable precision parts manufacturer, we aim is to fulfill our customers’ machining needs by developing bespoke solutions. All our precision components and parts are machined from an extensive range of materials such as aluminum, brass, stainless steel and tool steel.</p>
-        `,
-        image: "./image2/RDO-forestry-shoot-5.jpg ",
-        extraImages: [
-            "./image/banner5.jpg",
-            "./image/banner5.jpg",
-            "./image/banner5.jpg",
-            "./image/banner5.jpg"
-        ],
-        backgroundImage: "./image2/bus-back2.jpg" // Add this line
-    },
-    aftermarket: {
-        title: "RAILWAY",
-        content: `
-            <p>GS ENTERPRISES is the leading manufacturer of bogie parts </br>  specialization  in hydraulic damper parts. We are the leading railway parts manufacturer for safety critical components for both conventional and LHB coaches</p>
-             <p>Our railway components are meticulously designed to ensure the safe and efficient operation of rail systems. Our extensive range of parts, including camshafts, connecting rods, piston pins, and spacers, are expertly crafted to deliver outstanding functionality and long-lasting resilience.</p>
-            <p>We take pride in our ability to provide bespoke solutions tailored to specific needs, and we use modern manufacturing techniques to produce components that minimize downtime and maintenance costs.</p>
-        `,
-        image: "./image2/bus-back3.png",
-        extraImages: [
-            "./image/banner6.jpg ",
-            "./image/banner6.jpg",
-            "./image/banner6.jpg",
-            "./image/banner6.jpg"
-        ],
-        backgroundImage: "./image2/bus-back4.jpg" // Add this line
+    const contentData = {
+        construction: {
+            title: "AGRI MACHINARY",
+            content: `
+                <p>GSE is a manufacturer of 3-Point Linkage Parts for agricultural machinery. </br>  Product Portfolio offered to the agriculture segment includes 3-Point Linkage parts, Precision Machined Parts (PMP), Power take-off (PTO) components and Forgings.</p>
+            `,
+            extraImages: [
+                "./mech/a (1).jpg",
+                "./mech/a (1).png",
+                "./mech/a (2).jpg",
+                "./mech/a (2).png",
+                "./mech/a (3).png",
+                "./mech/a (4).png",
+                "./mech/a (5).png",
+                "./mech/a (5).png",
+            ],
+            backgroundImage: "./image2/bus-back5.jpg"
+        },
+        agriculture: {
+            title: "CONSTRUCTION AND FORESTRY",
+            content: `
+                <p>GSE is a supplier for precision machined parts (PMP) and Hydraulic Cylinder Parts to the mobile equipment market and in particular to the construction market. </p>
+            `,
+            extraImages: [
+                "./image/banner5.jpg",
+                "./image/banner5.jpg",
+                "./image/banner5.jpg",
+                "./image/banner5.jpg"
+            ],
+            backgroundImage: "./image2/bus-back2.jpg"
+        },
+        aftermarket: {
+            title: "RAILWAY",
+            content: `
+                <p>GS ENTERPRISES is the leading manufacturer of bogie parts </br>  specialization  in hydraulic damper parts. We are the leading railway parts manufacturer for safety critical components for both conventional and LHB coaches</p>
+            `,
+            extraImages: [
+                "./image/banner6.jpg ",
+                "./image/banner6.jpg",
+                "./image/banner6.jpg",
+                "./image/banner6.jpg"
+            ],
+            backgroundImage: "./image2/bus-back4.jpg"
+        }
+    };
+
+    function updateContent(option) {
+        const content = document.getElementById('content');
+        const bgScan = document.querySelector('.bg-scan');
+        const data = contentData[option];
+
+        // Update content
+        content.innerHTML = `
+            <h1>${data.title}</h1>
+            ${data.content}
+        `;
+
+        // Update background image
+        bgScan.style.backgroundImage = `url(${data.backgroundImage})`;
+
+        // Update extra images
+        const extraImagesContainer = document.getElementById('extra-images');
+        extraImagesContainer.innerHTML = ''; // Clear previous images
+        data.extraImages.forEach(imageSrc => {
+            const imgElement = document.createElement('img');
+            imgElement.src = imageSrc;
+            imgElement.alt = `${data.title} Extra Image`;
+            imgElement.classList.add('extra-image');
+            extraImagesContainer.appendChild(imgElement);
+        });
     }
-};
 
-function updateContent(option) {
-    const content = document.getElementById('content');
-    const sectorImage = document.getElementById('sector-image');
-    const bgScan = document.querySelector('.bg-scan'); // Add this line
-    const data = contentData[option];
-
-    // Update content and main image
-    content.innerHTML = `
-        <h1>${data.title}</h1>
-        ${data.content}
-    `;
-    sectorImage.src = data.image;
-    sectorImage.alt = data.title;
-
-    // Update background image
-    bgScan.style.backgroundImage = `url(${data.backgroundImage})`; // Add this line
-
-    // Update extra images
-    const extraImagesContainer = document.getElementById('extra-images');
-    extraImagesContainer.innerHTML = ''; // Clear previous images
-    data.extraImages.forEach(imageSrc => {
-        const imgElement = document.createElement('img');
-        imgElement.src = imageSrc;
-        imgElement.alt = `${data.title} Extra Image`;
-        imgElement.classList.add('extra-image');
-        extraImagesContainer.appendChild(imgElement);
+    document.querySelectorAll('.sidebary-option').forEach(button => {
+        button.addEventListener('click', () => {
+            document.querySelectorAll('.sidebary-option').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            updateContent(button.dataset.option);
+        });
     });
-}
 
-document.querySelectorAll('.sidebary-option').forEach(button => {
-    button.addEventListener('click', () => {
-        document.querySelectorAll('.sidebary-option').forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        updateContent(button.dataset.option);
+    // Initialize with Construction & Forestry content
+    updateContent('construction');
+    </script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script>var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3, // Default for larger screens
+        spaceBetween: 30,
+        slidesPerGroup: 3,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          // When window width is >= 320px (mobile)
+          320: {
+            slidesPerView: 1, // Show 1 card on mobile
+            slidesPerGroup: 1,
+            spaceBetween: 10,
+          },
+          // When window width is >= 768px (tablets/laptops)
+          768: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            spaceBetween: 20,
+          },
+          // When window width is >= 1024px (desktops)
+          1024: {
+            slidesPerView: 4,
+            slidesPerGroup:4,
+            spaceBetween: 30,
+          },
+        },
     });
-});
-
-// Initialize with Construction & Forestry content
-updateContent('construction');
-
-</script>
+    </script>
 
 </body>
 </html>
